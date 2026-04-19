@@ -1,16 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>linkdin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Clone - Beginner Project</title>
+    <!-- Linking our CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/index.jsx"></script>
-</body>
 
+    <!-- TOP NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <!-- Simple Logo Text -->
+                <h1 id="logo">LinkedIn</h1>
+                <!-- Search Bar -->
+                <div class="search-box">
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+            <div class="nav-right">
+                <!-- Navigation menu items -->
+                <ul>
+                    <li>Home</li>
+                    <li>My Network</li>
+                    <li>Jobs</li>
+                    <li>Messaging</li>
+                    <li>Notifications</li>
+                    <li class="profile-link">Me</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN BODY CONTENT -->
+    <div class="main-container">
+        
+        <!-- LEFT SIDEBAR: PROFILE INFO -->
+        <aside class="left-sidebar">
+            <div class="profile-card">
+                <!-- Profile Image -->
+                <img src="profile.png" alt="Profile Picture" class="profile-img">
+                <h3>Student Name</h3>
+                <p>First Semester Student</p>
+                <hr>
+                <div class="stats">
+                    <p>Connections: <span>120</span></p>
+                    <p>Profile views: <span>45</span></p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN FEED: POSTS -->
+        <main class="feed">
+            <!-- Start a Post Box -->
+            <div class="create-post" id="postBox">
+                <p>Start a post...</p>
+            </div>
+
+            <!-- Sample Post 1 -->
+            <div class="post">
+                <div class="post-header">
+                    <h4>University News</h4>
+                    <p>1 hour ago</p>
+                </div>
+                <div class="post-content">
+                    <p>Excited to start my first semester! The campus looks beautiful today. 🎓</p>
+                    <img src="campus.png" alt="University Campus" class="post-img">
+                </div>
+                <div class="post-footer">
+                    <button class="like-btn" onclick="increaseLike(this)">Like (<span class="count">0</span>)</button>
+                    <button>Comment</button>
+                    <button>Share</button>
+                </div>
+            </div>
+
+            <!-- Sample Post 2 -->
+            <div class="post">
+                <div class="post-header">
+                    <h4>Learning Web Dev</h4>
+                    <p>3 hours ago</p>
+                </div>
+                <div class="post-content">
+                    <p>Just learned how to use Flexbox to create a LinkedIn layout. It's so much easier than expected! #Coding #Beginner</p>
+                </div>
+                <div class="post-footer">
+                    <button class="like-btn" onclick="increaseLike(this)">Like (<span class="count">0</span>)</button>
+                    <button>Comment</button>
+                    <button>Share</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- RIGHT SIDEBAR: TRENDING NEWS -->
+        <aside class="right-sidebar">
+            <div class="news-card">
+                <h3>Trending News</h3>
+                <ul>
+                    <li><strong>New Tech Trends</strong> - 1,234 readers</li>
+                    <li><strong>Study Tips for Exams</strong> - 980 readers</li>
+                    <li><strong>Internship Openings</strong> - 567 readers</li>
+                    <li><strong>Career Fair 2024</strong> - 2,341 readers</li>
+                    <li><strong>Modern Web Dev</strong> - 890 readers</li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Linking our JavaScript file at the end -->
+    <script src="script.js"></script>
+</body>
 </html>
