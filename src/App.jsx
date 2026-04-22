@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import './App.css';
+import Navbar from './components/Navbar.jsx';
+import Home from './Pages/Home.jsx';
+import Profile from './Pages/Profile.jsx';
+import Job from './Pages/Job.jsx';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Home');
@@ -7,15 +12,15 @@ function App() {
     switch (currentPage) {
       case 'Home': return <Home />;
       case 'Me': return <Profile />;
-      case 'Messaging': return <Login />;
+      case 'Jobs': return <Job />; // Added missing routing to Jobs page as defined in html
       default: return <div style={{textAlign: 'center', marginTop: '50px'}}><h2>{currentPage} Page</h2><p>This page is currently under construction.</p></div>;
     }
   };
 
   return (
-    <div className="App" style={{ backgroundColor: '#f3f2ef', minHeight: '100vh', fontFamily: '-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif' }}>
+    <div className="App">
       <Navbar setCurrentPage={setCurrentPage} currentPage={currentPage} />
-      <div style={{ paddingTop: '60px' }}>
+      <div className="main-container">
         {renderPage()}
       </div>
     </div>
