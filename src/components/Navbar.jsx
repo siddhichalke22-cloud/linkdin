@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Navbar = ({ setCurrentPage, currentPage, theme, toggleTheme }) => {
+const Navbar = ({ setCurrentPage, currentPage, theme, toggleTheme, onLogout }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -21,7 +21,7 @@ const Navbar = ({ setCurrentPage, currentPage, theme, toggleTheme }) => {
     <nav className="navbar">
       <div className="nav-container">
         <div className="nav-left">
-          <h1 onClick={() => handleNavClick('Home')}>in</h1>
+          <h1 onClick={() => handleNavClick('Home')}>LinkedIn</h1>
           <div className="search-box">
             <input type="text" placeholder="🔍 Search" />
           </div>
@@ -45,6 +45,9 @@ const Navbar = ({ setCurrentPage, currentPage, theme, toggleTheme }) => {
           </ul>
           <button className="theme-toggle" onClick={toggleTheme} title="Toggle theme">
             {theme === 'light' ? '🌙' : '☀️'}
+          </button>
+          <button className="theme-toggle" onClick={onLogout} title="Logout" style={{marginLeft: '4px'}}>
+            🚪
           </button>
         </div>
       </div>

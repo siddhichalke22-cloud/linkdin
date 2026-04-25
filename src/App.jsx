@@ -7,9 +7,14 @@ import Job from './Pages/Job.jsx';
 import Network from './Pages/Network.jsx';
 import Messaging from './Pages/Messaging.jsx';
 import Notifications from './Pages/Notifications.jsx';
+import Login from './Pages/Login.jsx';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Home');
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem('linkedin_user');
+    return saved ? JSON.parse(saved) : null;
+  });
   const [theme, setTheme] = useState(() => localStorage.getItem('linkedin_theme') || 'light');
 
   useEffect(() => {
@@ -18,6 +23,22 @@ function App() {
   }, [theme]);
 
   const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light');
+
+  const handleLogin = (userData) => {
+    setUser(userData);
+    localStorage.setItem('linkedin_user', JSON.stringify(userData));
+    setCurrentPage('Home');
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.removeItem('linkedin_user');
+    setCurrentPage('Home');
+  };
+
+  if (!user) {
+    return <Login onLogin={handleLogin} />;
+  }
 
   const renderPage = () => {
     switch (currentPage) {
@@ -33,7 +54,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar setCurrentPage={setCurrentPage} currentPage={currentPage} theme={theme} toggleTheme={toggleTheme} />
+      <Navbar setCurrentPage={setCurrentPage} currentPage={currentPage} theme={theme} toggleTheme={toggleTheme} onLogout={handleLogout} />
       <div className="main-container">
         {renderPage()}
       </div>
