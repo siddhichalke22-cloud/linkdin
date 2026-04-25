@@ -4,13 +4,17 @@ const Sidebar = () => {
   return (
     <div className="card profile-card">
       <div className="profile-bg"></div>
-      <img src="/profile.png" alt="Profile" className="profile-img" onError={(e) => { e.target.src = 'https://via.placeholder.com/72'; }} />
+      <img src="https://i.pravatar.cc/150?img=5" alt="Profile" className="profile-img" />
       <h3>Student Name</h3>
-      <p>First Semester Student</p>
-      
+      <p>Student at Newton School of Technology 🎓</p>
       <div className="profile-stats">
         <p>Connections <span>120</span></p>
-        <p>Profile views <span>45</span></p>
+        <p>Who viewed your profile <span>45</span></p>
+      </div>
+      <div className="sidebar-links">
+        <a href="#">📑 Saved items</a>
+        <a href="#">👥 Groups</a>
+        <a href="#">📅 Events</a>
       </div>
     </div>
   );
